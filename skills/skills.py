@@ -420,7 +420,7 @@ async def execute_skill(body: SkillInput, db: AsyncSession = Depends(get_db)):
         # ── Payment Info ───────────────────────────────────
 
         elif skill_name == "GetPaymentInfo":
-            x402_enabled = bool(settings.x402_cdp_api_key and settings.platform_wallet_address)
+            x402_enabled = bool(settings.platform_wallet_address)
             return SkillOutput(
                 skill=skill_name, version=body.version, status="ok",
                 output={
